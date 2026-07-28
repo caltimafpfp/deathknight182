@@ -4,14 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>死亡騎士182｜官方網站</title>
-  <meta name="description" content="死亡騎士182 官方網站，提供最新公告、下載資訊、社群連結與伺服器資訊。">
+  <meta name="description" content="死亡騎士182 官方網站，提供最新公告、下載資訊、客服與伺服器資訊。">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
   <header class="site-header">
     <a class="logo" href="#home" aria-label="死亡騎士182首頁">
-      <span class="logo-top">DEATH KNIGHT</span>
-      <strong>182</strong>
+      <span>DEATH KNIGHT</span><strong>182</strong>
     </a>
     <button class="menu-button" type="button" aria-label="開啟選單">☰</button>
     <nav class="main-nav">
@@ -19,26 +18,18 @@
       <a href="#news">最新公告<small>NEWS</small></a>
       <a href="#download">下載專區<small>DOWNLOAD</small></a>
       <a href="#guide">遊戲介紹<small>GUIDE</small></a>
-      <a href="#donate">贊助中心<small>DONATE</small></a>
-      <a href="#support">客服中心<small>SUPPORT</small></a>
+      <a href="#service">客服與贊助<small>SERVICE</small></a>
     </nav>
   </header>
 
-  <section id="home" class="hero" aria-label="死亡騎士182主視覺">
-    <div class="hero-shade"></div>
+  <section id="home" class="hero">
+    <div class="hero-art" aria-hidden="true"></div>
     <div class="hero-content">
       <p class="hero-kicker">經典182・永久經營・公平耐玩</p>
       <h1>死亡騎士182</h1>
       <p class="hero-subtitle">經典再臨・熱血不滅</p>
-      <div class="hero-features">
-        <span>穩定長期</span>
-        <span>公平公正</span>
-        <span>熱血團隊</span>
-      </div>
-      <div class="hero-actions">
-        <a class="button button-red" data-link="download">立即下載</a>
-        <a class="button button-dark" data-link="discord">加入 Discord</a>
-      </div>
+      <div class="hero-features"><span>穩定長期</span><span>公平公正</span><span>熱血團隊</span></div>
+      <a class="button button-red" href="#download">立即下載</a>
     </div>
   </section>
 
@@ -55,7 +46,7 @@
       <div id="announcementList"></div>
     </section>
 
-    <section id="guide" class="panel">
+    <section id="guide" class="panel quick-panel">
       <header class="panel-header"><h2>快速連結</h2><span>GUIDE</span></header>
       <div class="icon-grid">
         <a href="#">新手教學</a><a href="#">遊戲介紹</a><a href="#">職業介紹</a><a href="#">地圖介紹</a>
@@ -63,35 +54,24 @@
       </div>
     </section>
 
-    <section id="download" class="panel">
+    <section id="download" class="panel download-panel">
       <header class="panel-header"><h2>下載專區</h2><span>DOWNLOAD</span></header>
       <div class="download-list">
         <a data-link="client"><span>完整主程式</span><b>下載</b></a>
         <a data-link="patch"><span>更新檔案</span><b>下載</b></a>
-        <a data-link="launcher"><span>登入器</span><b>下載</b></a>
       </div>
-      <div class="mirror-list">
-        <a data-link="googleDrive">Google Drive</a>
-        <a data-link="mega">MEGA 下載</a>
-      </div>
+      <div class="mirror-list"><a data-link="googleDrive">Google Drive</a></div>
     </section>
 
-    <section id="donate" class="panel">
-      <header class="panel-header"><h2>贊助中心</h2><span>DONATE</span></header>
-      <div class="icon-grid compact">
-        <a href="#">銀行匯款</a><a href="#">超商代碼</a><a href="#">8591 交易</a><a href="#">Line Pay</a>
+    <section id="service" class="panel service-panel">
+      <header class="panel-header"><h2>客服與贊助</h2><span>SERVICE</span></header>
+      <div class="service-copy">
+        <h3>需要協助或進行贊助？</h3>
+        <p>請透過官方 LINE 客服聯絡，或進入金流系統完成付款。</p>
       </div>
-    </section>
-
-    <section id="support" class="panel community-panel">
-      <div>
-        <p class="section-label">COMMUNITY</p>
-        <h2>加入我們的社群</h2>
-        <p>與更多玩家一起交流，掌握最新資訊。</p>
-      </div>
-      <div class="community-buttons">
-        <a class="discord" data-link="discord">加入 Discord</a>
-        <a class="facebook" data-link="facebook">追蹤粉絲專頁</a>
+      <div class="service-buttons">
+        <a class="line-button" data-link="lineOfficial">LINE 官方客服</a>
+        <a class="payment-button" data-link="payment">前往金流系統</a>
       </div>
     </section>
 
@@ -103,7 +83,6 @@
         <div><dt>經驗倍率</dt><dd id="expRate">5倍</dd></div>
         <div><dt>金幣倍率</dt><dd id="adenaRate">3倍</dd></div>
         <div><dt>掉寶倍率</dt><dd id="dropRate">2倍</dd></div>
-        <div><dt>伺服器 IP</dt><dd id="serverIp">即將公布</dd></div>
       </dl>
     </section>
   </main>

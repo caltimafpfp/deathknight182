@@ -5,15 +5,11 @@ window.SITE_SETTINGS = {
   expRate: "5倍",
   adenaRate: "3倍",
   dropRate: "2倍",
-  serverIp: "即將公布",
   links: {
-    download: "#",
-    discord: "#",
-    facebook: "#",
     client: "#",
     patch: "#",
-    launcher: "#",
     googleDrive: "#",
-    mega: "#"
+    lineOfficial: "#",
+    payment: "#"
   }
 };
