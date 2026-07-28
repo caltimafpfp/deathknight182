@@ -1,46 +1,161 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-Hant">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>死亡騎士182</title>
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a0806">
+  <meta name="description" content="死亡騎士182｜經典182・永久經營・公平耐玩">
+  <title>死亡騎士182｜官方網站</title>
+  <link rel="icon" href="images/favicon.png">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<header class="topbar">
-<div class="logo">死亡騎士182</div>
-<nav>
-<a href="#">首頁</a>
-<a href="#">最新公告</a>
-<a href="#">下載專區</a>
-<a href="#">遊戲介紹</a>
-<a href="#">客服與贊助</a>
-</nav>
-</header>
+  <div class="embers" aria-hidden="true"></div>
 
-<section class="hero">
-<div class="hero-text">
-<h1>死亡騎士182</h1>
-<p>經典182・永久經營・公平耐玩</p>
-<div class="buttons">
-<a class="btn">立即下載</a>
-<a class="btn">LINE 官方客服</a>
-<a class="btn gold">贊助請點我</a>
-</div>
-</div>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="回到首頁">
+      <span class="brand-mark">☠</span>
+      <span>
+        <strong>死亡騎士182</strong>
+        <small>DEATH KNIGHT</small>
+      </span>
+    </a>
 
-<div class="hero-image">
-<!-- 之後放入無文字的死亡騎士圖片 -->
-<img src="images/deathknight.png" alt="Death Knight">
-</div>
-</section>
+    <button class="menu-toggle" type="button" aria-label="開啟選單" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
 
-<section class="status">
-<div><h3>開服日期</h3><p>預計 2025/08/15</p></div>
-<div><h3>伺服器狀態</h3><p>開服倒數中</p></div>
-<div><h3>經驗倍率</h3><p>5 倍</p></div>
-<div><h3>重啟時間</h3><p>每日 18:00</p></div>
-</section>
-<script src="js/main.js"></script>
+    <nav class="main-nav" aria-label="主要導覽">
+      <a class="active" href="#home">首頁<small>HOME</small></a>
+      <a href="#news">最新公告<small>NEWS</small></a>
+      <a href="#download">下載專區<small>DOWNLOAD</small></a>
+      <a href="#features">遊戲介紹<small>GAME INFO</small></a>
+      <a href="#support">客服中心<small>SERVICE</small></a>
+      <a href="#support">贊助支持<small>DONATE</small></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy reveal">
+        <div class="eyebrow">經典回歸・長久經營</div>
+        <h1>死亡騎士<span>182</span></h1>
+        <p class="tagline">經典182・永久經營・公平耐玩</p>
+
+        <div class="hero-meta">
+          <div class="meta-card">
+            <span class="meta-icon">▣</span>
+            <div><small>開服日期</small><strong>2025 / 08 / 15</strong></div>
+          </div>
+          <div class="meta-card">
+            <span class="meta-icon">◷</span>
+            <div><small>每日重啟時間</small><strong>18:00</strong></div>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a class="btn btn-red" href="#download"><span>⬇</span> 遊戲下載</a>
+          <a class="btn btn-line" href="#" data-link="line"><span>LINE</span> 官方客服</a>
+          <a class="btn btn-gold" href="#" data-link="donate"><span>◆</span> 贊助請點我</a>
+        </div>
+      </div>
+
+      <div class="hero-art reveal" aria-label="死亡騎士主視覺">
+        <div class="art-glow"></div>
+        <img src="images/deathknight-hero.jpg" alt="火焰死亡騎士">
+      </div>
+    </section>
+
+    <section class="dashboard section-wrap">
+      <article class="panel news-panel reveal" id="news">
+        <div class="panel-title">
+          <h2>最新公告</h2>
+          <span>NEWS</span>
+        </div>
+        <div class="news-list" id="newsList"></div>
+        <button class="text-button" type="button" id="showAllNews">查看全部公告 ＋</button>
+      </article>
+
+      <article class="panel reveal" id="features">
+        <div class="panel-title">
+          <h2>遊戲特色</h2>
+          <span>FEATURES</span>
+        </div>
+        <div class="feature-grid">
+          <div class="feature"><b>⚔</b><strong>經典182</strong><small>原汁原味</small></div>
+          <div class="feature"><b>⚖</b><strong>公平耐玩</strong><small>平衡設定</small></div>
+          <div class="feature"><b>◉</b><strong>穩定流暢</strong><small>長期經營</small></div>
+          <div class="feature"><b>🎁</b><strong>活動豐富</strong><small>獎勵多多</small></div>
+          <div class="feature"><b>♟</b><strong>團隊用心</strong><small>誠信經營</small></div>
+          <div class="feature"><b>♡</b><strong>玩家至上</strong><small>用心服務</small></div>
+        </div>
+      </article>
+
+      <article class="panel rates-panel reveal">
+        <div class="panel-title">
+          <h2>伺服器倍率</h2>
+          <span>SERVER RATE</span>
+        </div>
+        <dl class="rates">
+          <div><dt>經驗倍率</dt><dd class="highlight">5倍</dd></div>
+          <div><dt>正義倍率</dt><dd>1倍</dd></div>
+          <div><dt>金幣倍率</dt><dd>1倍</dd></div>
+          <div><dt>道具倍率</dt><dd>1倍</dd></div>
+          <div><dt>武防倍率</dt><dd>1倍</dd></div>
+        </dl>
+      </article>
+    </section>
+
+    <section class="downloads section-wrap reveal" id="download">
+      <div class="section-heading">
+        <span>DOWNLOAD CENTER</span>
+        <h2>下載專區</h2>
+        <p>請依照需求下載完整主程式或最新更新檔。</p>
+      </div>
+      <div class="download-grid">
+        <a class="download-card" href="#" data-link="client">
+          <span class="download-icon">⬇</span>
+          <div><h3>完整主程式</h3><p>首次安裝建議下載</p></div>
+          <b>DOWNLOAD</b>
+        </a>
+        <a class="download-card" href="#" data-link="patch">
+          <span class="download-icon">↻</span>
+          <div><h3>更新檔案</h3><p>已有主程式的玩家使用</p></div>
+          <b>PATCH</b>
+        </a>
+        <a class="download-card" href="#" data-link="drive">
+          <span class="download-icon">G</span>
+          <div><h3>Google Drive</h3><p>雲端備用下載點</p></div>
+          <b>DRIVE</b>
+        </a>
+      </div>
+    </section>
+
+    <section class="support section-wrap reveal" id="support">
+      <div class="support-copy">
+        <span>PLAYER SUPPORT</span>
+        <h2>客服與贊助</h2>
+        <p>遇到登入、下載或遊戲問題，請透過 LINE 官方客服聯繫。贊助功能請使用官方按鈕，避免透過不明管道交易。</p>
+      </div>
+      <div class="support-actions">
+        <a class="btn btn-line large" href="#" data-link="line">LINE 官方客服</a>
+        <a class="btn btn-gold large" href="#" data-link="donate">贊助請點我</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <strong>死亡騎士182</strong>
+      <small>DEATH KNIGHT</small>
+    </div>
+    <div class="footer-item"><span>LINE 官方客服</span><b>@deathknight182</b></div>
+    <div class="footer-item"><span>重啟時間</span><b>每日 18:00</b></div>
+    <div class="footer-item"><span>開服日期</span><b>2025 / 08 / 15</b></div>
+    <div class="footer-note">© 2025 死亡騎士182。本站為非官方遊戲社群網站，與原遊戲公司無關。</div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
