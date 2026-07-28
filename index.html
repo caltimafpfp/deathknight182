@@ -4,107 +4,118 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>死亡騎士182｜官方網站</title>
-  <meta name="description" content="死亡騎士182 官方網站，提供最新公告與伺服器資訊。">
-  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="死亡騎士182 官方網站，提供最新公告、下載資訊、社群連結與伺服器資訊。">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <header class="hero">
-    <div class="hero__shade"></div>
-    <div class="hero__content">
-      <p class="eyebrow">DEATH KNIGHT 182</p>
-      <h1>死亡騎士182</h1>
-      <p class="subtitle">經典冒險・熱血戰鬥・長期經營</p>
-      <a class="primary-button" href="#announcements">查看最新公告</a>
-    </div>
+  <header class="site-header">
+    <a class="logo" href="#home" aria-label="死亡騎士182首頁">
+      <span class="logo-top">DEATH KNIGHT</span>
+      <strong>182</strong>
+    </a>
+    <button class="menu-button" type="button" aria-label="開啟選單">☰</button>
+    <nav class="main-nav">
+      <a href="#home">首頁<small>HOME</small></a>
+      <a href="#news">最新公告<small>NEWS</small></a>
+      <a href="#download">下載專區<small>DOWNLOAD</small></a>
+      <a href="#guide">遊戲介紹<small>GUIDE</small></a>
+      <a href="#donate">贊助中心<small>DONATE</small></a>
+      <a href="#support">客服中心<small>SUPPORT</small></a>
+    </nav>
   </header>
 
-  <nav class="top-nav" aria-label="主要導覽">
-    <a href="#home">首頁</a>
-    <a href="#announcements">最新公告</a>
-    <a href="#server">伺服器資訊</a>
-  </nav>
+  <section id="home" class="hero" aria-label="死亡騎士182主視覺">
+    <div class="hero-shade"></div>
+    <div class="hero-content">
+      <p class="hero-kicker">經典182・永久經營・公平耐玩</p>
+      <h1>死亡騎士182</h1>
+      <p class="hero-subtitle">經典再臨・熱血不滅</p>
+      <div class="hero-features">
+        <span>穩定長期</span>
+        <span>公平公正</span>
+        <span>熱血團隊</span>
+      </div>
+      <div class="hero-actions">
+        <a class="button button-red" data-link="download">立即下載</a>
+        <a class="button button-dark" data-link="discord">加入 Discord</a>
+      </div>
+    </div>
+  </section>
 
-  <main id="home" class="page-shell">
-    <section class="welcome-card">
+  <section class="status-bar" aria-label="伺服器狀態">
+    <article><strong id="onlineCount">258</strong><span>目前在線</span></article>
+    <article><strong id="openDate">2025 / 08 / 05</strong><span>開服時間</span></article>
+    <article><strong class="status-ok">正常運作</strong><span>伺服器狀態</span></article>
+    <article><strong id="restartTime">每日 04:00</strong><span>重啟時間</span></article>
+  </section>
+
+  <main class="content-grid">
+    <section id="news" class="panel news-panel">
+      <header class="panel-header"><h2>最新公告</h2><span>NEWS</span></header>
+      <div id="announcementList"></div>
+    </section>
+
+    <section id="guide" class="panel">
+      <header class="panel-header"><h2>快速連結</h2><span>GUIDE</span></header>
+      <div class="icon-grid">
+        <a href="#">新手教學</a><a href="#">遊戲介紹</a><a href="#">職業介紹</a><a href="#">地圖介紹</a>
+        <a href="#">Boss介紹</a><a href="#">道具介紹</a><a href="#">血盟系統</a><a href="#">常見問題</a>
+      </div>
+    </section>
+
+    <section id="download" class="panel">
+      <header class="panel-header"><h2>下載專區</h2><span>DOWNLOAD</span></header>
+      <div class="download-list">
+        <a data-link="client"><span>完整主程式</span><b>下載</b></a>
+        <a data-link="patch"><span>更新檔案</span><b>下載</b></a>
+        <a data-link="launcher"><span>登入器</span><b>下載</b></a>
+      </div>
+      <div class="mirror-list">
+        <a data-link="googleDrive">Google Drive</a>
+        <a data-link="mega">MEGA 下載</a>
+      </div>
+    </section>
+
+    <section id="donate" class="panel">
+      <header class="panel-header"><h2>贊助中心</h2><span>DONATE</span></header>
+      <div class="icon-grid compact">
+        <a href="#">銀行匯款</a><a href="#">超商代碼</a><a href="#">8591 交易</a><a href="#">Line Pay</a>
+      </div>
+    </section>
+
+    <section id="support" class="panel community-panel">
       <div>
-        <span class="section-kicker">WELCOME</span>
-        <h2>歡迎來到死亡騎士182</h2>
-        <p>所有重要更新、維護通知與活動消息，都會集中公布在這裡。</p>
+        <p class="section-label">COMMUNITY</p>
+        <h2>加入我們的社群</h2>
+        <p>與更多玩家一起交流，掌握最新資訊。</p>
       </div>
-      <div class="crest" aria-hidden="true">182</div>
-    </section>
-
-    <section id="announcements" class="section">
-      <div class="section-heading">
-        <div>
-          <span class="section-kicker">NEWS</span>
-          <h2>最新公告</h2>
-        </div>
-        <p>公告內容由 <code>announcements.js</code> 自動載入。</p>
-      </div>
-
-      <div id="announcement-list" class="announcement-list">
-        <p class="loading">公告載入中……</p>
+      <div class="community-buttons">
+        <a class="discord" data-link="discord">加入 Discord</a>
+        <a class="facebook" data-link="facebook">追蹤粉絲專頁</a>
       </div>
     </section>
 
-    <section id="server" class="section server-grid">
-      <article class="info-card">
-        <span class="section-kicker">SERVER</span>
-        <h3>伺服器名稱</h3>
-        <p>死亡騎士182</p>
-      </article>
-      <article class="info-card">
-        <span class="section-kicker">VERSION</span>
-        <h3>遊戲版本</h3>
-        <p>182 經典版本</p>
-      </article>
-      <article class="info-card">
-        <span class="section-kicker">NOTICE</span>
-        <h3>重要提醒</h3>
-        <p>請以本站公告內容為準。</p>
-      </article>
+    <section class="panel server-panel">
+      <header class="panel-header"><h2>伺服器資訊</h2><span>SERVER</span></header>
+      <dl>
+        <div><dt>伺服器名稱</dt><dd>死亡騎士182</dd></div>
+        <div><dt>遊戲版本</dt><dd>經典182版本</dd></div>
+        <div><dt>經驗倍率</dt><dd id="expRate">5倍</dd></div>
+        <div><dt>金幣倍率</dt><dd id="adenaRate">3倍</dd></div>
+        <div><dt>掉寶倍率</dt><dd id="dropRate">2倍</dd></div>
+        <div><dt>伺服器 IP</dt><dd id="serverIp">即將公布</dd></div>
+      </dl>
     </section>
   </main>
 
-  <footer>
-    <p>© <span id="year"></span> 死亡騎士182。保留所有權利。</p>
+  <footer class="site-footer">
+    <div class="footer-logo">DEATH KNIGHT 182</div>
+    <p>死亡騎士182 版權所有 © <span id="year"></span></p>
+    <small>本遊戲為私人伺服器，與原廠無關。</small>
   </footer>
 
-  <script src="announcements.js"></script>
-  <script>
-    const list = document.getElementById('announcement-list');
-    const items = Array.isArray(window.ANNOUNCEMENTS) ? window.ANNOUNCEMENTS : [];
-
-    if (!items.length) {
-      list.innerHTML = '<p class="empty">目前尚無公告。</p>';
-    } else {
-      list.innerHTML = items.map((item, index) => `
-        <article class="announcement ${index === 0 ? 'announcement--latest' : ''}">
-          <div class="announcement__meta">
-            <span class="tag">${escapeHtml(item.category || '官方公告')}</span>
-            <time>${escapeHtml(item.date || '')}</time>
-          </div>
-          <h3>${escapeHtml(item.title || '未命名公告')}</h3>
-          <div class="announcement__body">${formatText(item.content || '')}</div>
-        </article>
-      `).join('');
-    }
-
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    function escapeHtml(value) {
-      return String(value)
-        .replaceAll('&', '&amp;')
-        .replaceAll('<', '&lt;')
-        .replaceAll('>', '&gt;')
-        .replaceAll('"', '&quot;')
-        .replaceAll("'", '&#039;');
-    }
-
-    function formatText(value) {
-      return escapeHtml(value).replaceAll('\n', '<br>');
-    }
-  </script>
+  <script src="assets/js/settings.js"></script>
+  <script src="assets/js/announcements.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
