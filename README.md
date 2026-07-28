@@ -1,10 +1,6 @@
-# 死亡騎士182 官方網站正式版
+# 死亡騎士182 官方網站（乾淨主視覺版）
 
-## 最常修改的檔案
+這個版本已移除主圖裡重複的選單、標題與按鈕。
 - 公告：`assets/js/announcements.js`
-- 伺服器資料與網址：`assets/js/settings.js`
-- 首頁圖片：`assets/images/hero.png`
-
-## GitHub Pages
-- Branch：main
-- Folder：/(root)
+- 伺服器資料與連結：`assets/js/settings.js`
+- 騎士圖片：`assets/images/hero-knight.png`
