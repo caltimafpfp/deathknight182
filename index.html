@@ -2,17 +2,22 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#080604">
   <meta name="description" content="死亡騎士182｜經典182・永久經營・公平耐玩">
   <title>死亡騎士182｜官方網站</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <div class="embers" aria-hidden="true"></div>
+
   <header class="site-header">
     <a class="brand" href="#home">
-      <strong>死亡騎士182</strong>
-      <small>DEATH KNIGHT</small>
+      <span class="brand-mark">DK</span>
+      <span class="brand-copy">
+        <strong>死亡騎士182</strong>
+        <small>DEATH KNIGHT</small>
+      </span>
     </a>
 
     <button class="menu-toggle" type="button" aria-label="開啟選單" aria-expanded="false">
@@ -20,7 +25,7 @@
     </button>
 
     <nav class="main-nav">
-      <a href="#home">首頁<small>HOME</small></a>
+      <a class="active" href="#home">首頁<small>HOME</small></a>
       <a href="#news">最新公告<small>NEWS</small></a>
       <a href="#download">下載專區<small>DOWNLOAD</small></a>
       <a href="#features">遊戲介紹<small>GAME INFO</small></a>
@@ -54,14 +59,15 @@
         </div>
       </div>
 
-      <div class="hero-visual">
+      <div class="hero-character" aria-label="死亡騎士主視覺">
+        <div class="character-glow"></div>
         <img src="images/deathknight-original.png" alt="死亡騎士">
       </div>
     </section>
 
-    <section class="section-grid wrap">
+    <section class="info-grid wrap">
       <article class="panel" id="news">
-        <header class="panel-heading">
+        <header class="panel-title">
           <h2>最新公告</h2>
           <span>NEWS</span>
         </header>
@@ -69,7 +75,7 @@
       </article>
 
       <article class="panel" id="features">
-        <header class="panel-heading">
+        <header class="panel-title">
           <h2>遊戲特色</h2>
           <span>FEATURES</span>
         </header>
@@ -81,7 +87,7 @@
       </article>
 
       <article class="panel">
-        <header class="panel-heading">
+        <header class="panel-title">
           <h2>伺服器倍率</h2>
           <span>SERVER RATE</span>
         </header>
@@ -100,7 +106,6 @@
         <span>DOWNLOAD</span>
         <h2>下載專區</h2>
       </header>
-
       <div class="download-grid">
         <a href="#" data-link="client"><strong>完整主程式</strong><small>首次安裝使用</small></a>
         <a href="#" data-link="patch"><strong>更新檔</strong><small>已有主程式使用</small></a>

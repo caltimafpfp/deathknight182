@@ -1,5 +1,4 @@
 const cfg = window.SITE_CONFIG || {};
-
 const nav = document.querySelector(".main-nav");
 const toggle = document.querySelector(".menu-toggle");
 
@@ -36,7 +35,6 @@ document.querySelectorAll("[data-link]").forEach(el => {
 
 const newsList = document.querySelector("#newsList");
 const items = Array.isArray(cfg.announcements) ? cfg.announcements : [];
-
 newsList.innerHTML = items.map(item => `
   <div class="news-item">
     <span>${item.title}</span>
