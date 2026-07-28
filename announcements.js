@@ -1,26 +1,7 @@
-/*
-  更新公告只需要修改這個檔案。
-
-  規則：
-  1. 最新公告放最上面。
-  2. 每一則公告都要保留 category、date、title、content。
-  3. 每一則公告之間要有逗號。
-  4. 內容換行請直接按 Enter。
-*/
-
 window.ANNOUNCEMENTS = [
-  {
-    category: "官方公告",
-    date: "2026-07-28",
-    title: "死亡騎士182 官方網站啟用",
-    content: `歡迎來到死亡騎士182官方網站。
-之後的重要更新與維護消息，都會在這裡公布。`
-  },
-  {
-    category: "更新公告",
-    date: "2026-07-27",
-    title: "網站測試公告",
-    content: `目前網站正在測試中。
-如有最新消息，請以官方公告為準。`
-  }
+  {category:"重要",color:"red",date:"2025/08/05",title:"【開服公告】死亡騎士182 正式開服！",content:"感謝各位玩家的等待，歡迎大家一起加入我們的世界！"},
+  {category:"活動",color:"orange",date:"2025/08/05",title:"【開服活動】七大開服活動開跑！",content:"活動詳情請留意後續公告。"},
+  {category:"更新",color:"blue",date:"2025/08/04",title:"【更新資訊】伺服器穩定性優化",content:"優化伺服器效能，提升遊戲穩定性。"},
+  {category:"活動",color:"green",date:"2025/08/04",title:"【攻城戰預告】本週六 20:00 攻城戰開打！",content:"各血盟請準備好，爭奪榮耀與獎勵。"},
+  {category:"系統",color:"gray",date:"2025/08/03",title:"【系統公告】防詐騙提醒",content:"本服不會主動詢問玩家密碼，請注意防範詐騙。"}
 ];

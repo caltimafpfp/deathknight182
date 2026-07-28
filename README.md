@@ -1,4 +1,5 @@
-# 死亡騎士182 圖片修正版
+# 死亡騎士182 官方網站 V2
 
-本版只修正首頁死亡騎士圖片：改為完整顯示，不再只剩一半。
-其他網站內容與設定保持不變。
+- 更新公告：修改 `announcements.js`
+- 修改伺服器資料與下載/Discord/Facebook 連結：修改 `settings.js`
+- GitHub Pages：main 分支、/(root)
