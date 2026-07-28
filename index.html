@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>死亡騎士182｜官方網站</title>
+  <meta name="description" content="死亡騎士182 官方網站，提供最新公告與伺服器資訊。">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__shade"></div>
+    <div class="hero__content">
+      <p class="eyebrow">DEATH KNIGHT 182</p>
+      <h1>死亡騎士182</h1>
+      <p class="subtitle">經典冒險・熱血戰鬥・長期經營</p>
+      <a class="primary-button" href="#announcements">查看最新公告</a>
+    </div>
+  </header>
+
+  <nav class="top-nav" aria-label="主要導覽">
+    <a href="#home">首頁</a>
+    <a href="#announcements">最新公告</a>
+    <a href="#server">伺服器資訊</a>
+  </nav>
+
+  <main id="home" class="page-shell">
+    <section class="welcome-card">
+      <div>
+        <span class="section-kicker">WELCOME</span>
+        <h2>歡迎來到死亡騎士182</h2>
+        <p>所有重要更新、維護通知與活動消息，都會集中公布在這裡。</p>
+      </div>
+      <div class="crest" aria-hidden="true">182</div>
+    </section>
+
+    <section id="announcements" class="section">
+      <div class="section-heading">
+        <div>
+          <span class="section-kicker">NEWS</span>
+          <h2>最新公告</h2>
+        </div>
+        <p>公告內容由 <code>announcements.js</code> 自動載入。</p>
+      </div>
+
+      <div id="announcement-list" class="announcement-list">
+        <p class="loading">公告載入中……</p>
+      </div>
+    </section>
+
+    <section id="server" class="section server-grid">
+      <article class="info-card">
+        <span class="section-kicker">SERVER</span>
+        <h3>伺服器名稱</h3>
+        <p>死亡騎士182</p>
+      </article>
+      <article class="info-card">
+        <span class="section-kicker">VERSION</span>
+        <h3>遊戲版本</h3>
+        <p>182 經典版本</p>
+      </article>
+      <article class="info-card">
+        <span class="section-kicker">NOTICE</span>
+        <h3>重要提醒</h3>
+        <p>請以本站公告內容為準。</p>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> 死亡騎士182。保留所有權利。</p>
+  </footer>
+
+  <script src="announcements.js"></script>
+  <script>
+    const list = document.getElementById('announcement-list');
+    const items = Array.isArray(window.ANNOUNCEMENTS) ? window.ANNOUNCEMENTS : [];
+
+    if (!items.length) {
+      list.innerHTML = '<p class="empty">目前尚無公告。</p>';
+    } else {
+      list.innerHTML = items.map((item, index) => `
+        <article class="announcement ${index === 0 ? 'announcement--latest' : ''}">
+          <div class="announcement__meta">
+            <span class="tag">${escapeHtml(item.category || '官方公告')}</span>
+            <time>${escapeHtml(item.date || '')}</time>
+          </div>
+          <h3>${escapeHtml(item.title || '未命名公告')}</h3>
+          <div class="announcement__body">${formatText(item.content || '')}</div>
+        </article>
+      `).join('');
+    }
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#039;');
+    }
+
+    function formatText(value) {
+      return escapeHtml(value).replaceAll('\n', '<br>');
+    }
+  </script>
+</body>
+</html>
