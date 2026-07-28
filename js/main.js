@@ -1,27 +1,23 @@
-const config = window.SITE_CONFIG || {};
-const menuToggle = document.querySelector(".menu-toggle");
-const nav = document.querySelector(".main-nav");
+const cfg = window.SITE_CONFIG || {};
+const menu = document.querySelector(".menu-btn");
+const nav = document.querySelector(".nav");
 
-menuToggle?.addEventListener("click", () => {
+menu?.addEventListener("click", () => {
   const open = nav.classList.toggle("open");
-  menuToggle.setAttribute("aria-expanded", String(open));
+  menu.setAttribute("aria-expanded", String(open));
 });
+document.querySelectorAll(".nav a").forEach(a => a.addEventListener("click", () => nav.classList.remove("open")));
 
-document.querySelectorAll(".main-nav a").forEach(link => {
-  link.addEventListener("click", () => nav.classList.remove("open"));
-});
-
-const mapping = {
-  line: config.lineUrl,
-  donate: config.donateUrl,
-  client: config.clientUrl,
-  patch: config.patchUrl,
-  drive: config.driveUrl
+const links = {
+  line: cfg.lineUrl,
+  donate: cfg.donateUrl,
+  client: cfg.clientUrl,
+  patch: cfg.patchUrl,
+  drive: cfg.driveUrl
 };
 
 document.querySelectorAll("[data-link]").forEach(el => {
-  const key = el.dataset.link;
-  const url = mapping[key];
+  const url = links[el.dataset.link];
   if (url && url !== "#") {
     el.href = url;
     el.target = "_blank";
@@ -29,37 +25,48 @@ document.querySelectorAll("[data-link]").forEach(el => {
   } else {
     el.addEventListener("click", e => {
       e.preventDefault();
-      alert("此連結尚未設定，請在 js/config.js 中貼上正式網址。");
+      alert("此連結尚未設定，請打開 js/config.js 貼上正式網址。");
     });
   }
 });
 
-const newsList = document.querySelector("#newsList");
-const news = Array.isArray(config.announcements) ? config.announcements : [];
+const list = document.querySelector("#newsList");
+const toggle = document.querySelector("#toggleNews");
+const announcements = Array.isArray(cfg.announcements) ? cfg.announcements : [];
 let expanded = false;
 
 function renderNews() {
-  const items = expanded ? news : news.slice(0, 4);
-  newsList.innerHTML = items.map(item => `
+  const rows = expanded ? announcements : announcements.slice(0, 4);
+  list.innerHTML = rows.map(item => `
     <div class="news-item">
-      ${item.tag ? `<span class="badge ${item.tag === "NEW" ? "new" : ""}">${item.tag}</span>` : "<span>＋</span>"}
-      <span>${item.title}</span>
-      <time class="news-date">${item.date}</time>
+      <span class="tag ${item.tag === "HOT" ? "hot" : ""}">${item.tag || "NEWS"}</span>
+      <span class="title">${item.title}</span>
+      <time>${item.date}</time>
     </div>
   `).join("");
+  toggle.textContent = expanded ? "收合公告" : "查看全部";
 }
 renderNews();
-
-document.querySelector("#showAllNews")?.addEventListener("click", e => {
+toggle?.addEventListener("click", () => {
   expanded = !expanded;
-  e.currentTarget.textContent = expanded ? "收合公告 －" : "查看全部公告 ＋";
   renderNews();
 });
 
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add("visible");
+    if (entry.isIntersecting) entry.target.classList.add("show");
   });
-}, { threshold: 0.12 });
-
+}, { threshold: .12 });
 document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+const sections = [...document.querySelectorAll("main section[id]")];
+const navLinks = [...document.querySelectorAll(".nav a")];
+window.addEventListener("scroll", () => {
+  let current = "home";
+  sections.forEach(section => {
+    if (window.scrollY >= section.offsetTop - 160) current = section.id;
+  });
+  navLinks.forEach(link => {
+    link.classList.toggle("active", link.getAttribute("href") === `#${current}`);
+  });
+}, { passive: true });
