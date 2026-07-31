@@ -21,7 +21,7 @@
         <a class="nav-home" href="#home" aria-label="首頁"></a>
         <a class="nav-news" href="#news" aria-label="最新公告"></a>
         <a class="nav-download" href="#download" aria-label="下載專區"></a>
-        <a class="nav-game" href="#features" aria-label="遊戲介紹"></a>
+        <a class="nav-game" href="#game-guide" aria-label="遊戲介紹"></a>
         <a class="nav-service" href="#support" aria-label="客服中心"></a>
         <a class="nav-donate" href="#" data-link="donate" aria-label="贊助支持"></a>
 
@@ -38,6 +38,21 @@
           <h2>最新公告</h2>
         </div>
         <div id="newsList" class="news-list"></div>
+      </div>
+    </section>
+
+
+    <section class="content-section" id="game-guide">
+      <div class="section-card guide-shell">
+        <div class="section-title">
+          <span>GAME GUIDE</span>
+          <h2>遊戲介紹</h2>
+          <p>點選分類查看內容。之後只要修改 <code>data/game-guide.js</code>，即可更新文字與圖片。</p>
+        </div>
+        <div class="guide-layout">
+          <nav id="guideTabs" class="guide-tabs" aria-label="遊戲介紹分類"></nav>
+          <div id="guideContent" class="guide-content"></div>
+        </div>
       </div>
     </section>
 
@@ -101,6 +116,7 @@
   </main>
 
   <script src="js/config.js"></script>
+  <script src="data/game-guide.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

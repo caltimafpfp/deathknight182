@@ -171,3 +171,24 @@ a{color:inherit;text-decoration:none}
   .support-actions{width:100%;flex-direction:column}
   .support-actions a{width:100%}
 }
+
+
+/* V7 遊戲介紹 */
+.section-title p{margin:12px 0 0;color:var(--muted);line-height:1.8}
+.section-title code{padding:2px 7px;border:1px solid #4a3218;background:#090603;color:#d8aa53}
+.guide-layout{display:grid;grid-template-columns:250px 1fr;gap:22px;margin-top:24px}
+.guide-tabs{display:flex;flex-direction:column;gap:9px}
+.guide-tabs button{width:100%;padding:15px 16px;border:1px solid #51381d;background:#100a06;color:#cdbb9f;text-align:left;cursor:pointer}
+.guide-tabs button:hover,.guide-tabs button.active{border-color:#c08b3b;color:#f3d58f;background:linear-gradient(90deg,#2c1809,#120b06)}
+.guide-content{min-height:400px}
+.guide-hero{padding:25px;border:1px solid #5b3e1d;background:linear-gradient(145deg,#160e08,#090604)}
+.guide-hero h3{margin:0 0 10px;color:#f0cc82;font-size:27px}
+.guide-hero p{margin:0;color:#a99a86;line-height:1.9}
+.guide-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:18px}
+.guide-card{overflow:hidden;border:1px solid #51381d;background:#0f0906}
+.guide-card img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#090603}
+.guide-card-body{padding:18px}
+.guide-card h4{margin:0 0 8px;color:#e8c47a;font-size:19px}
+.guide-card p{margin:0;color:#9c8f7d;line-height:1.8}
+.guide-empty-image{display:grid;place-items:center;aspect-ratio:16/9;background:radial-gradient(circle at 50% 40%,rgba(111,40,127,.2),transparent 45%),#090603;color:#6e5d47;font-size:12px;letter-spacing:2px}
+@media(max-width:800px){.guide-layout{grid-template-columns:1fr}.guide-tabs{display:grid;grid-template-columns:repeat(2,1fr)}.guide-cards{grid-template-columns:1fr}}
