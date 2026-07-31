@@ -1,27 +1,243 @@
+:root{
+  --bg:#070403;
+  --panel:#110b07;
+  --gold:#d8aa53;
+  --gold-soft:#f2cf88;
+  --border:#65451f;
+  --text:#f6ead4;
+  --muted:#9f907e;
+}
 *{box-sizing:border-box}
-html,body{margin:0;background:#050302}
-body{font-family:"Microsoft JhengHei",sans-serif}
-.site{min-height:100vh}
-.page-art{position:relative;width:100%;max-width:1920px;margin:0 auto;background:#050302}
-.page-art img{display:block;width:100%;height:auto}
-.hotspots a{position:absolute;z-index:10;display:block;background:transparent}
-.hotspots a:focus-visible{outline:2px solid #ffd16c;outline-offset:-2px}
-.nav-home{left:25.6%;top:0%;width:7.2%;height:6.8%}
-.nav-guide{left:32.8%;top:0%;width:8.1%;height:6.8%}
-.nav-news{left:40.9%;top:0%;width:8.0%;height:6.8%}
-.nav-download{left:48.9%;top:0%;width:8.6%;height:6.8%}
-.nav-service{left:57.5%;top:0%;width:8.6%;height:6.8%}
-.nav-donate{left:66.1%;top:0%;width:8.3%;height:6.8%}
-.hero-download{left:5.0%;top:46.0%;width:12.8%;height:7.4%}
-.hero-line{left:18.2%;top:46.0%;width:13.8%;height:7.4%}
-.hero-donate{left:32.5%;top:46.0%;width:13.6%;height:7.4%}
-.card-server{left:5.0%;top:71.2%;width:11.3%;height:12.2%}
-.card-features{left:17.3%;top:71.2%;width:11.3%;height:12.2%}
-.card-weapons{left:29.6%;top:71.2%;width:11.3%;height:12.2%}
-.card-armor{left:41.9%;top:71.2%;width:11.3%;height:12.2%}
-.card-dolls{left:54.2%;top:71.2%;width:11.3%;height:12.2%}
-.card-maps{left:66.5%;top:71.2%;width:11.3%;height:12.2%}
-.card-items{left:78.8%;top:71.2%;width:11.3%;height:12.2%}
-.footer-line{left:68.0%;top:96.0%;width:10.2%;height:3.6%}
-.footer-discord{left:79.2%;top:96.0%;width:10.6%;height:3.6%}
-@media(max-width:800px){.page-art{min-width:1180px}body{overflow-x:auto}}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:
+    radial-gradient(circle at 50% 0%,rgba(90,27,87,.16),transparent 32%),
+    #070403;
+  color:var(--text);
+  font-family:"Microsoft JhengHei","Noto Serif TC",serif;
+}
+a{color:inherit;text-decoration:none}
+
+.approved-page{min-height:100vh}
+.poster-wrap{
+  position:relative;
+  width:100%;
+  overflow:hidden;
+  background:#050302;
+}
+.approved-poster{
+  display:block;
+  width:100%;
+  height:auto;
+  max-width:none;
+}
+
+.hotspots a{
+  position:absolute;
+  display:block;
+  z-index:5;
+  border:0;
+  background:transparent;
+}
+.hotspots a:focus-visible{
+  outline:2px solid #ffd272;
+  outline-offset:-2px;
+}
+
+/* 導覽區：百分比完全依照已核准畫面定位 */
+.nav-home{left:39.8%;top:0;width:6.7%;height:8.6%}
+.nav-news{left:46.5%;top:0;width:7.7%;height:8.6%}
+.nav-download{left:54.2%;top:0;width:8.1%;height:8.6%}
+.nav-game{left:62.3%;top:0;width:8.0%;height:8.6%}
+.nav-service{left:70.3%;top:0;width:7.5%;height:8.6%}
+.nav-donate{left:77.8%;top:0;width:7.0%;height:8.6%}
+
+/* 首頁三個主按鈕 */
+.btn-download{left:5.2%;top:71.6%;width:11.3%;height:10.0%}
+.btn-line{left:17.4%;top:71.6%;width:12.4%;height:10.0%}
+.btn-donate{left:30.7%;top:71.6%;width:12.0%;height:10.0%}
+
+.content-section{
+  width:min(1420px,92%);
+  margin:0 auto;
+  padding:72px 0 0;
+}
+.two-column{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+.section-card{
+  padding:30px;
+  border:1px solid var(--border);
+  background:
+    linear-gradient(180deg,rgba(18,12,7,.97),rgba(7,5,3,.98));
+  box-shadow:0 18px 45px rgba(0,0,0,.35);
+}
+.section-title{
+  padding-bottom:18px;
+  border-bottom:1px solid #3a2816;
+}
+.section-title span{
+  font:10px Georgia,serif;
+  letter-spacing:4px;
+  color:#9f7335;
+}
+.section-title h2{
+  margin:7px 0 0;
+  color:var(--gold-soft);
+  font-size:32px;
+}
+.news-item{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:18px;
+  padding:17px 0;
+  border-bottom:1px solid #281c12;
+}
+.news-item time{
+  color:#7d7264;
+  font:11px Georgia,serif;
+}
+.feature-list div,
+.rates div{
+  padding:16px 0;
+  border-bottom:1px solid #281c12;
+}
+.feature-list strong{
+  display:block;
+  color:var(--gold-soft);
+}
+.feature-list small{
+  display:block;
+  margin-top:5px;
+  color:var(--muted);
+}
+.rates{margin:0}
+.rates div{
+  display:flex;
+  justify-content:space-between;
+}
+.rates dd{
+  margin:0;
+  color:#f3dfbc;
+  font-size:20px;
+}
+.rates div:first-child dd{color:#49db6a}
+.download-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-top:22px;
+}
+.download-grid a,
+.support-actions a{
+  padding:24px;
+  border:1px solid var(--border);
+  background:#160d07;
+}
+.download-grid strong{display:block;color:var(--gold-soft);font-size:20px}
+.download-grid small{display:block;margin-top:7px;color:var(--muted)}
+.support-card{
+  margin-bottom:70px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:28px;
+}
+.support-card p{color:var(--muted)}
+.support-actions{
+  display:flex;
+  gap:12px;
+}
+.support-actions a{min-width:180px;text-align:center}
+
+@media(max-width:800px){
+  .poster-wrap{overflow-x:auto}
+  .approved-poster{
+    width:1280px;
+    max-width:none;
+  }
+  .hotspots{
+    position:absolute;
+    inset:0;
+    width:1280px;
+  }
+  .content-section{padding-top:42px}
+  .two-column{grid-template-columns:1fr}
+  .download-grid{grid-template-columns:1fr}
+  .support-card{flex-direction:column;text-align:center}
+  .support-actions{width:100%;flex-direction:column}
+  .support-actions a{width:100%}
+}
+
+
+/* V7 遊戲介紹 */
+.section-title p{margin:12px 0 0;color:var(--muted);line-height:1.8}
+.section-title code{padding:2px 7px;border:1px solid #4a3218;background:#090603;color:#d8aa53}
+.guide-layout{display:grid;grid-template-columns:250px 1fr;gap:22px;margin-top:24px}
+.guide-tabs{display:flex;flex-direction:column;gap:9px}
+.guide-tabs button{width:100%;padding:15px 16px;border:1px solid #51381d;background:#100a06;color:#cdbb9f;text-align:left;cursor:pointer}
+.guide-tabs button:hover,.guide-tabs button.active{border-color:#c08b3b;color:#f3d58f;background:linear-gradient(90deg,#2c1809,#120b06)}
+.guide-content{min-height:400px}
+.guide-hero{padding:25px;border:1px solid #5b3e1d;background:linear-gradient(145deg,#160e08,#090604)}
+.guide-hero h3{margin:0 0 10px;color:#f0cc82;font-size:27px}
+.guide-hero p{margin:0;color:#a99a86;line-height:1.9}
+.guide-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:18px}
+.guide-card{overflow:hidden;border:1px solid #51381d;background:#0f0906}
+.guide-card img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#090603}
+.guide-card-body{padding:18px}
+.guide-card h4{margin:0 0 8px;color:#e8c47a;font-size:19px}
+.guide-card p{margin:0;color:#9c8f7d;line-height:1.8}
+.guide-empty-image{display:grid;place-items:center;aspect-ratio:16/9;background:radial-gradient(circle at 50% 40%,rgba(111,40,127,.2),transparent 45%),#090603;color:#6e5d47;font-size:12px;letter-spacing:2px}
+@media(max-width:800px){.guide-layout{grid-template-columns:1fr}.guide-tabs{display:grid;grid-template-columns:repeat(2,1fr)}.guide-cards{grid-template-columns:1fr}}
+
+
+/* V8 首頁標語：取代原本三個資訊框 */
+.slogan-band{
+  position:relative;
+  z-index:2;
+  width:100%;
+  padding:30px 24px 34px;
+  text-align:center;
+  border-top:1px solid #8a5b24;
+  border-bottom:1px solid #65451f;
+  background:
+    linear-gradient(90deg,rgba(5,3,2,.90),rgba(28,12,6,.86),rgba(5,3,2,.90)),
+    radial-gradient(circle at 50% 50%,rgba(190,70,14,.20),transparent 55%),
+    #090503;
+  box-shadow:inset 0 1px rgba(244,190,93,.10),0 14px 40px rgba(0,0,0,.35);
+  overflow:hidden;
+}
+.slogan-band::before,
+.slogan-band::after{
+  content:"";
+  position:absolute;
+  left:5%;
+  right:5%;
+  height:1px;
+  background:linear-gradient(90deg,transparent,#be8337 18%,#f2c46b 50%,#be8337 82%,transparent);
+  opacity:.65;
+}
+.slogan-band::before{top:12px}
+.slogan-band::after{bottom:12px}
+.slogan-band p{
+  margin:0;
+  color:#f0ca77;
+  font-weight:800;
+  letter-spacing:.16em;
+  line-height:1.45;
+  text-shadow:0 2px 0 #442509,0 0 18px rgba(255,151,35,.20);
+}
+.slogan-band p:first-child{
+  font-size:clamp(25px,3vw,47px);
+}
+.slogan-band p:last-child{
+  margin-top:4px;
+  font-size:clamp(22px,2.45vw,39px);
+}
+@media(max-width:800px){
+  .slogan-band{padding:22px 14px 26px}
+  .slogan-band p{letter-spacing:.08em}
+}
