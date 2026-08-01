@@ -4,6 +4,7 @@ export const defaultSiteButtons = {
   heroDonate: { label: "贊助支持", url: "#" },
   guideServer: { label: "伺服器設置", url: "#" },
   guideFeatures: { label: "特色介紹", url: "#" },
+  guideWeapons: { label: "武器介紹", url: "#" },
   guideArmor: { label: "防具介紹", url: "#" },
   guideDolls: { label: "娃娃介紹", url: "#" },
   guideMaps: { label: "地圖介紹", url: "#" },
@@ -18,7 +19,7 @@ export const defaultSiteButtons = {
 
 export const siteButtonSections = [
   { title: "上方主按鈕", keys: ["heroDownload", "heroLine", "heroDonate"] },
-  { title: "中間遊戲介紹", keys: ["guideServer", "guideFeatures", "guideArmor", "guideDolls", "guideMaps", "guideItems"] },
+  { title: "中間遊戲介紹", keys: ["guideServer", "guideFeatures", "guideWeapons", "guideArmor", "guideDolls", "guideMaps", "guideItems"] },
   { title: "下方客服與支持", keys: ["supportLine", "supportDonate", "supportReferral", "supportFacebook"] },
   { title: "最下方下載專區", keys: ["downloadClient", "downloadDrive"] }
 ];

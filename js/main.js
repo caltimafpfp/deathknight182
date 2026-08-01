@@ -55,10 +55,10 @@ async function loadNews(){
 }
 loadNews();
 
-const glyphs=['♜','✥','♞','♟','⌖','⚗'];
+const glyphs=['♜','✥','⚔','♞','♟','⌖','⚗'];
 const tabs=document.querySelector('#guideTabs');
 const detail=document.querySelector('#guideDetail');
-const guideKeys={server:'guideServer',features:'guideFeatures',armor:'guideArmor',dolls:'guideDolls',maps:'guideMaps',items:'guideItems'};
+const guideKeys={server:'guideServer',features:'guideFeatures',weapons:'guideWeapons',armor:'guideArmor',dolls:'guideDolls',maps:'guideMaps',items:'guideItems'};
 const visibleGuides=guideData.filter(item=>guideKeys[item.id]);
 function renderGuideTabs(){tabs.innerHTML=visibleGuides.map((item,i)=>{const key=guideKeys[item.id];const setting=siteButtons[key];return `<button type="button" class="guide-tab" data-id="${safeText(item.id)}" data-key="${safeText(key)}"><span class="guide-glyph">${glyphs[i]||'◆'}</span><span class="guide-name">${safeText(setting?.label||item.title)}</span><span class="guide-more">VIEW MORE »</span></button>`}).join('')}
 function renderGuide(id){const section=guideData.find(item=>item.id===id);if(!section)return;const heading=siteButtons[guideKeys[id]]?.label||section.title;tabs.querySelectorAll('.guide-tab').forEach(btn=>btn.classList.toggle('active',btn.dataset.id===id));detail.innerHTML=`<header><div><h3>${safeText(heading)}</h3><p>${safeText(section.intro)}</p></div><a class="more-link" href="#game-guide">返回分類</a></header><div class="guide-items">${(section.items||[]).map(item=>`<article class="guide-item"><h4>${safeText(item.title)}</h4><p>${safeText(item.description)}</p></article>`).join('')}</div>`;detail.classList.add('open');detail.scrollIntoView({behavior:'smooth',block:'center'})}
