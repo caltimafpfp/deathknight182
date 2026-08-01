@@ -1,13 +1,37 @@
+import { collection, getDocs, query, where } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+import { db } from "./firebase-client.js";
+
 const cfg = window.SITE_CONFIG || {};
 const guideData = Array.isArray(window.GAME_GUIDE) ? window.GAME_GUIDE : [];
 const linkMap = {line:cfg.lineUrl,donate:cfg.donateUrl,client:cfg.clientUrl,patch:cfg.patchUrl,drive:cfg.driveUrl,referral:cfg.referralUrl,facebook:cfg.facebookUrl};
 
 function safeText(value){return String(value??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;")}
+function toDate(value){if(value?.toDate)return value.toDate();const date=new Date(value);return Number.isNaN(date.getTime())?new Date(0):date}
+function formatDate(value){const date=toDate(value);return date.getTime()?date.toLocaleDateString('zh-TW',{year:'numeric',month:'2-digit',day:'2-digit'}).replaceAll('/','-'):''}
+
 document.querySelectorAll('[data-link]').forEach(el=>{const url=linkMap[el.dataset.link];if(url&&url!=="#"){el.href=url;el.target="_blank";el.rel="noopener noreferrer"}else{el.addEventListener('click',e=>{e.preventDefault();alert('此連結尚未設定，請在 js/config.js 貼上正式網址。')})}});
 
-const tags=['活動','公告','活動','系統','更新'];
-const announcements=Array.isArray(cfg.announcements)?cfg.announcements:[];
-document.querySelector('#newsList').innerHTML=announcements.slice(0,5).map((item,i)=>`<a class="news-item" href="#news"><span class="tag">${tags[i]||'公告'}</span><span>${safeText(item.title)}</span><time>${safeText(item.date)}</time><span class="arrow">›</span></a>`).join('');
+const newsList=document.querySelector('#newsList');
+function renderNews(items,firebaseEnabled=true){
+  if(!items.length){newsList.innerHTML='<p class="news-status">目前尚無公告</p>';return}
+  newsList.innerHTML=items.slice(0,5).map((item,i)=>{
+    const href=firebaseEnabled&&item.id?`announcement.html?id=${encodeURIComponent(item.id)}`:'#news';
+    return `<a class="news-item" href="${href}"><span class="tag">${safeText(item.category||['活動','公告','活動','系統','更新'][i]||'公告')}</span><span>${safeText(item.title)}</span><time>${safeText(formatDate(item.publishedAt||item.date))}</time><span class="arrow">›</span></a>`
+  }).join('');
+}
+
+async function loadNews(){
+  newsList.innerHTML='<p class="news-status">公告讀取中…</p>';
+  try{
+    const snapshot=await getDocs(query(collection(db,'announcements'),where('published','==',true)));
+    const items=snapshot.docs.map(doc=>({id:doc.id,...doc.data()})).sort((a,b)=>Number(b.pinned)-Number(a.pinned)||toDate(b.publishedAt)-toDate(a.publishedAt));
+    renderNews(items.length?items:(Array.isArray(cfg.announcements)?cfg.announcements:[]),items.length>0);
+  }catch(error){
+    console.warn('Firebase announcements unavailable; using local fallback.',error);
+    renderNews(Array.isArray(cfg.announcements)?cfg.announcements:[],false);
+  }
+}
+loadNews();
 
 const glyphs=['♜','✥','⚔','♞','♟','⌖','⚗'];
 const tabs=document.querySelector('#guideTabs');

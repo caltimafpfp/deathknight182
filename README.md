@@ -14,7 +14,25 @@
 - `referralUrl`：推廣回報
 - `facebookUrl`：Facebook 粉絲專頁
 
-公告也在同一個檔案的 `announcements` 陣列中更新。
+`announcements` 陣列只在 Firebase 暫時無法連線時作為備用公告。
+
+## Firebase 公告後台
+
+後台網址為：
+
+`https://caltimafpfp.github.io/deathknight182/admin/`
+
+使用已在 Firebase Authentication 建立的管理員帳號登入。後台支援新增、修改、刪除、草稿、發布、置頂及多張圖片網址。
+
+公告資料儲存在 Firestore 的 `announcements` 集合。首頁只顯示已發布公告，點擊標題會開啟 `announcement.html?id=...` 詳細頁。
+
+Firebase 公開網頁設定位於 `js/firebase-config.js`；管理員存取權同時受到 Firebase Authentication UID 與 Firestore 規則限制。
+
+Firestore 規則備份位於 `firebase/firestore.rules`。若管理員 UID 變更，必須同時更新該檔案、Firebase 控制台規則及 `js/firebase-config.js`。
+
+### 免費方案圖片
+
+本版本不使用 Firebase Storage。請先將圖片上傳至可公開讀取的圖片空間，再於後台「圖片網址」欄位每行貼上一個 `https://` 圖片網址。
 
 ## 遊戲介紹
 

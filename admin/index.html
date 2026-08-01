@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#08090d">
+  <title>公告後台｜死亡騎士182</title>
+  <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+  <main class="admin-shell">
+    <section id="loginView" class="login-card">
+      <div class="admin-logo">DK</div>
+      <p class="eyebrow">DEATH KNIGHT 182</p>
+      <h1>公告管理後台</h1>
+      <p class="muted">使用 Firebase 管理員帳號登入</p>
+      <form id="loginForm">
+        <label>Email<input id="loginEmail" type="email" autocomplete="username" required></label>
+        <label>密碼<input id="loginPassword" type="password" autocomplete="current-password" minlength="6" required></label>
+        <button type="submit">登入後台</button>
+      </form>
+      <p id="loginStatus" class="status" role="status"></p>
+      <a class="back-site" href="../">← 返回網站</a>
+    </section>
+
+    <section id="adminView" class="admin-view" hidden>
+      <header class="admin-header">
+        <div><p class="eyebrow">DEATH KNIGHT 182</p><h1>公告管理</h1><p id="adminEmail" class="muted"></p></div>
+        <div class="header-actions"><a href="../" target="_blank" rel="noopener">查看網站</a><button id="logoutBtn" type="button" class="secondary">登出</button></div>
+      </header>
+
+      <div class="admin-grid">
+        <section class="editor-card">
+          <div class="section-heading"><h2 id="formTitle">新增公告</h2><button id="resetBtn" type="button" class="secondary">清空表單</button></div>
+          <form id="announcementForm">
+            <input id="docId" type="hidden">
+            <div class="field-row">
+              <label>分類<select id="category"><option>公告</option><option>活動</option><option>系統</option><option>更新</option><option>下載</option></select></label>
+              <label>發布日期<input id="publishedAt" type="date" required></label>
+            </div>
+            <label>公告標題<input id="title" type="text" maxlength="100" required placeholder="輸入公告標題"></label>
+            <label>首頁摘要<textarea id="excerpt" rows="3" maxlength="240" placeholder="簡短說明公告內容"></textarea></label>
+            <label>完整內容<textarea id="content" rows="12" required placeholder="輸入完整公告內容，可使用換行分段"></textarea></label>
+            <label>圖片網址<textarea id="images" rows="4" placeholder="每行一個 https:// 圖片網址"></textarea><small>免費方案不儲存圖片檔案；請先將圖片上傳至圖片空間，再貼上直接圖片網址。</small></label>
+            <div class="toggle-row"><label><input id="published" type="checkbox"> 立即發布</label><label><input id="pinned" type="checkbox"> 置頂公告</label></div>
+            <div class="form-actions"><button type="submit">儲存公告</button><button id="deleteBtn" type="button" class="danger" hidden>刪除公告</button></div>
+          </form>
+          <p id="formStatus" class="status" role="status"></p>
+        </section>
+
+        <section class="list-card">
+          <div class="section-heading"><div><h2>公告列表</h2><p class="muted">點擊公告即可編輯</p></div><button id="refreshBtn" type="button" class="secondary">重新整理</button></div>
+          <div id="announcementList" class="admin-list"><p class="muted">讀取中…</p></div>
+        </section>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="../js/admin.js"></script>
+</body>
+</html>
