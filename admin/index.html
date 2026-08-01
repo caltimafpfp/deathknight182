@@ -41,6 +41,23 @@
         <p id="settingsStatus" class="status" role="status"></p>
       </section>
 
+      <section class="settings-card guide-editor-card">
+        <div class="section-heading">
+          <div><h2>遊戲介紹內容管理</h2><p class="muted">七個遊戲介紹都可更新標題、文字內容與圖片。</p></div>
+        </div>
+        <form id="guideContentForm">
+          <label>選擇介紹分類<select id="guideContentSelect"></select></label>
+          <div class="field-row">
+            <label>內容標題<input id="guideContentTitle" type="text" maxlength="60" required></label>
+            <label>簡短介紹<input id="guideContentIntro" type="text" maxlength="180" required></label>
+          </div>
+          <label>完整文字內容<textarea id="guideContentBody" rows="12" required placeholder="輸入完整介紹內容，可使用換行分段"></textarea></label>
+          <label>內容圖片網址<textarea id="guideContentImages" rows="4" placeholder="每行一個 https:// 圖片網址"></textarea><small>免費方案請使用公開圖片網址，每個分類最多 10 張。</small></label>
+          <div class="form-actions"><button type="submit">儲存這個介紹內容</button></div>
+        </form>
+        <p id="guideContentStatus" class="status" role="status"></p>
+      </section>
+
       <div class="admin-grid">
         <section class="editor-card">
           <div class="section-heading"><h2 id="formTitle">新增公告</h2><button id="resetBtn" type="button" class="secondary">清空表單</button></div>

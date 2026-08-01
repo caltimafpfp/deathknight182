@@ -13,6 +13,8 @@
 
 網站設定儲存在 Firestore 的 `siteSettings/main` 文件。`js/config.js` 的 `announcements` 陣列只在 Firebase 暫時無法連線時作為備用公告。
 
+七個遊戲介紹的標題、簡介、完整文字與圖片網址，也可在管理後台的「遊戲介紹內容管理」更新，並儲存在同一份 `siteSettings/main` 文件。
+
 ## Firebase 公告後台
 
 後台網址為：
@@ -33,7 +35,7 @@ Firestore 規則備份位於 `firebase/firestore.rules`。重新上傳此版本�
 
 ## 遊戲介紹
 
-六個分類的預設站內內容位於 `data/game-guide.js`。後台可修改每個分類的顯示名稱與外部網址；若網址留空或使用 `#`，點擊後會顯示站內介紹內容。
+七個分類的預設站內內容位於 `data/game-guide.js`。後台可修改每個分類的顯示名稱、外部網址、文字內容與圖片；若網址留空或使用 `#`，點擊後會顯示後台儲存的站內介紹內容。
 
 ## GitHub Pages 部署
 
