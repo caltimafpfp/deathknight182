@@ -2,124 +2,87 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#070403">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#050507">
   <meta name="description" content="死亡騎士182｜經典182・永久經營・公平耐玩">
   <title>死亡騎士182｜官方網站</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <main class="approved-page" id="home">
-    <div class="poster-wrap">
-      <img
-        class="approved-poster"
-        src="images/approved-hero.png"
-        alt="死亡騎士182 官方網站首頁"
-      >
+  <a class="skip-link" href="#news">跳至主要內容</a>
 
-      <nav class="hotspots" aria-label="網站導覽">
+  <header class="mobile-header">
+    <a class="mobile-brand" href="#home"><span>DK</span><strong>死亡騎士182<small>DEATH KNIGHT</small></strong></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobileMenu">選單</button>
+    <nav id="mobileMenu" class="mobile-menu" aria-label="行動版導覽">
+      <a href="#home">首頁</a><a href="#news">最新公告</a><a href="#game-guide">遊戲介紹</a>
+      <a href="#download">下載專區</a><a href="#support">客服中心</a><a href="#" data-link="donate">贊助支持</a>
+    </nav>
+  </header>
+
+  <main id="home">
+    <section class="hero" aria-label="死亡騎士182主視覺">
+      <img class="hero-art" src="images/reference-home.png" alt="死亡騎士182，火焰死亡騎士與暗黑城堡主視覺">
+      <nav class="hero-hotspots" aria-label="網站導覽">
         <a class="nav-home" href="#home" aria-label="首頁"></a>
         <a class="nav-news" href="#news" aria-label="最新公告"></a>
         <a class="nav-download" href="#download" aria-label="下載專區"></a>
         <a class="nav-game" href="#game-guide" aria-label="遊戲介紹"></a>
         <a class="nav-service" href="#support" aria-label="客服中心"></a>
         <a class="nav-donate" href="#" data-link="donate" aria-label="贊助支持"></a>
-
         <a class="btn-download" href="#download" aria-label="遊戲下載"></a>
         <a class="btn-line" href="#" data-link="line" aria-label="LINE 官方客服"></a>
-        <a class="btn-donate" href="#" data-link="donate" aria-label="贊助請點我"></a>
+        <a class="btn-donate" href="#" data-link="donate" aria-label="贊助支持"></a>
       </nav>
-    </div>
-
-    <section class="slogan-band" aria-label="伺服器經營理念">
-      <p>保證不鎖寶・公平耐玩・永久經營</p>
-      <p>全服平衡設定・拒絕魔改</p>
     </section>
 
-    <section class="content-section" id="news">
-      <div class="section-card">
-        <div class="section-title">
-          <span>NEWS</span>
-          <h2>最新公告</h2>
-        </div>
-        <div id="newsList" class="news-list"></div>
-      </div>
-    </section>
+    <div class="battlefield">
+      <section class="dashboard" aria-label="遊戲資訊總覽">
+        <article class="ornate-panel news-panel" id="news">
+          <header class="panel-heading">
+            <div class="heading-title"><span class="heading-icon">◆</span><h2>最新公告<small>NEWS</small></h2></div>
+            <a href="#news" class="more-link">查看更多 <span>›</span></a>
+          </header>
+          <div id="newsList" class="news-list"></div>
+          <p class="news-ticker"><b>HOT</b><span>持續更新中… 更多精彩活動即將公開！</span></p>
+        </article>
 
-
-    <section class="content-section" id="game-guide">
-      <div class="section-card guide-shell">
-        <div class="section-title">
-          <span>GAME GUIDE</span>
-          <h2>遊戲介紹</h2>
-          <p>點選分類查看內容。之後只要修改 <code>data/game-guide.js</code>，即可更新文字與圖片。</p>
-        </div>
-        <div class="guide-layout">
+        <article class="ornate-panel guide-panel" id="game-guide">
+          <header class="panel-heading">
+            <div class="heading-title"><span class="heading-icon">♜</span><h2>遊戲介紹<small>GAME INFO</small></h2></div>
+            <p>完整介紹・新手也能快速上手</p>
+          </header>
           <nav id="guideTabs" class="guide-tabs" aria-label="遊戲介紹分類"></nav>
-          <div id="guideContent" class="guide-content"></div>
-        </div>
-      </div>
-    </section>
+        </article>
+      </section>
 
-    <section class="content-section two-column" id="features">
-      <div class="section-card">
-        <div class="section-title">
-          <span>FEATURES</span>
-          <h2>遊戲特色</h2>
-        </div>
-        <div class="feature-list">
-          <div><strong>經典182</strong><small>保留熟悉的遊戲節奏</small></div>
-          <div><strong>公平耐玩</strong><small>穩定平衡的遊戲環境</small></div>
-          <div><strong>永久經營</strong><small>重視玩家長期累積</small></div>
-        </div>
-      </div>
+      <section id="guideDetail" class="guide-detail" aria-live="polite"></section>
 
-      <div class="section-card">
-        <div class="section-title">
-          <span>SERVER RATE</span>
-          <h2>伺服器倍率</h2>
+      <section class="support-section" id="support">
+        <div class="support-title"><span></span><h2>客服與支持<small>SUPPORT &amp; COMMUNITY</small></h2><span></span></div>
+        <div class="support-grid">
+          <a href="#" data-link="line" class="support-card line-card"><i>LINE</i><span><strong>LINE 官方客服</strong><small>即時客服・快速回覆</small></span><b>›</b></a>
+          <a href="#" data-link="donate" class="support-card donate-card"><i>◎</i><span><strong>贊助支持</strong><small>支持我們・讓我們做得更好</small></span><b>›</b></a>
+          <a href="#" data-link="referral" class="support-card referral-card"><i>◖</i><span><strong>推廣回報</strong><small>邀請好友・領取獎勵</small></span><b>›</b></a>
+          <a href="#" data-link="facebook" class="support-card facebook-card"><i>f</i><span><strong>官方 Facebook</strong><small>最新消息・活動公告</small></span><b>›</b></a>
         </div>
-        <dl class="rates">
-          <div><dt>經驗倍率</dt><dd>5倍</dd></div>
-          <div><dt>正義倍率</dt><dd>1倍</dd></div>
-          <div><dt>金幣倍率</dt><dd>1倍</dd></div>
-          <div><dt>道具倍率</dt><dd>1倍</dd></div>
-          <div><dt>武防倍率</dt><dd>1倍</dd></div>
-        </dl>
-      </div>
-    </section>
+      </section>
 
-    <section class="content-section" id="download">
-      <div class="section-card">
-        <div class="section-title">
-          <span>DOWNLOAD</span>
-          <h2>下載專區</h2>
-        </div>
+      <section class="download-section ornate-panel" id="download">
+        <header class="panel-heading">
+          <div class="heading-title"><span class="heading-icon">⇩</span><h2>下載專區<small>DOWNLOAD</small></h2></div>
+          <p>請依照你的安裝狀況選擇下載項目</p>
+        </header>
         <div class="download-grid">
-          <a href="#" data-link="client"><strong>完整主程式</strong><small>首次安裝使用</small></a>
-          <a href="#" data-link="patch"><strong>更新檔</strong><small>已有主程式使用</small></a>
-          <a href="#" data-link="drive"><strong>Google Drive</strong><small>雲端下載位置</small></a>
+          <a href="#" data-link="client"><span>01</span><strong>完整主程式<small>首次安裝使用</small></strong><b>立即下載</b></a>
+          <a href="#" data-link="patch"><span>02</span><strong>最新更新檔<small>已有主程式使用</small></strong><b>立即下載</b></a>
+          <a href="#" data-link="drive"><span>03</span><strong>Google Drive<small>備用雲端載點</small></strong><b>前往下載</b></a>
         </div>
-      </div>
-    </section>
-
-    <section class="content-section" id="support">
-      <div class="section-card support-card">
-        <div>
-          <div class="section-title">
-            <span>SUPPORT</span>
-            <h2>客服與贊助</h2>
-          </div>
-          <p>遊戲相關問題請透過 LINE 官方客服聯繫。</p>
-        </div>
-        <div class="support-actions">
-          <a href="#" data-link="line">LINE 官方客服</a>
-          <a href="#" data-link="donate">贊助請點我</a>
-        </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </main>
 
+  <footer><p>© 2026 死亡騎士182 Death Knight. All Rights Reserved.</p><span>死亡騎士182・用心打造最耐玩的經典天堂</span></footer>
   <script src="js/config.js"></script>
   <script src="data/game-guide.js"></script>
   <script src="js/main.js"></script>

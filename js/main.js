@@ -1,62 +1,19 @@
 const cfg = window.SITE_CONFIG || {};
-
-const linkMap = {
-  line: cfg.lineUrl,
-  donate: cfg.donateUrl,
-  client: cfg.clientUrl,
-  patch: cfg.patchUrl,
-  drive: cfg.driveUrl
-};
-
-document.querySelectorAll("[data-link]").forEach(el => {
-  const url = linkMap[el.dataset.link];
-
-  if (url && url !== "#") {
-    el.href = url;
-    el.target = "_blank";
-    el.rel = "noopener noreferrer";
-  } else {
-    el.addEventListener("click", event => {
-      event.preventDefault();
-      alert("此連結尚未設定，請在 js/config.js 貼上正式網址。");
-    });
-  }
-});
-
-const newsList = document.querySelector("#newsList");
-const announcements = Array.isArray(cfg.announcements) ? cfg.announcements : [];
-
-newsList.innerHTML = announcements.map(item => `
-  <div class="news-item">
-    <span>${item.title}</span>
-    <time>${item.date}</time>
-  </div>
-`).join("");
-
-
 const guideData = Array.isArray(window.GAME_GUIDE) ? window.GAME_GUIDE : [];
-const guideTabs = document.querySelector("#guideTabs");
-const guideContent = document.querySelector("#guideContent");
+const linkMap = {line:cfg.lineUrl,donate:cfg.donateUrl,client:cfg.clientUrl,patch:cfg.patchUrl,drive:cfg.driveUrl,referral:cfg.referralUrl,facebook:cfg.facebookUrl};
 
-function esc(v){
-  return String(v).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");
-}
-function renderGuide(id){
-  const section = guideData.find(x => x.id === id) || guideData[0];
-  if(!section) return;
-  document.querySelectorAll(".guide-tabs button").forEach(b => b.classList.toggle("active", b.dataset.id === section.id));
-  const cards = (section.items || []).map(item => `
-    <article class="guide-card">
-      ${item.image ? `<img src="${esc(item.image)}" alt="${esc(item.title)}">` : `<div class="guide-empty-image">尚未上傳圖片</div>`}
-      <div class="guide-card-body">
-        <h4>${esc(item.title)}</h4>
-        <p>${esc(item.description)}</p>
-      </div>
-    </article>`).join("");
-  guideContent.innerHTML = `<div class="guide-hero"><h3>${esc(section.title)}</h3><p>${esc(section.intro)}</p></div><div class="guide-cards">${cards}</div>`;
-}
-if(guideTabs){
-  guideTabs.innerHTML = guideData.map((x,i) => `<button type="button" data-id="${esc(x.id)}" class="${i===0?"active":""}">${esc(x.title)}</button>`).join("");
-  guideTabs.addEventListener("click", e => { const b=e.target.closest("button[data-id]"); if(b) renderGuide(b.dataset.id); });
-  renderGuide(guideData[0]?.id);
-}
+function safeText(value){return String(value??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;")}
+document.querySelectorAll('[data-link]').forEach(el=>{const url=linkMap[el.dataset.link];if(url&&url!=="#"){el.href=url;el.target="_blank";el.rel="noopener noreferrer"}else{el.addEventListener('click',e=>{e.preventDefault();alert('此連結尚未設定，請在 js/config.js 貼上正式網址。')})}});
+
+const tags=['活動','公告','活動','系統','更新'];
+const announcements=Array.isArray(cfg.announcements)?cfg.announcements:[];
+document.querySelector('#newsList').innerHTML=announcements.slice(0,5).map((item,i)=>`<a class="news-item" href="#news"><span class="tag">${tags[i]||'公告'}</span><span>${safeText(item.title)}</span><time>${safeText(item.date)}</time><span class="arrow">›</span></a>`).join('');
+
+const glyphs=['♜','✥','⚔','♞','♟','⌖','⚗'];
+const tabs=document.querySelector('#guideTabs');
+const detail=document.querySelector('#guideDetail');
+tabs.innerHTML=guideData.map((item,i)=>`<button type="button" class="guide-tab" data-id="${safeText(item.id)}"><span class="guide-glyph">${glyphs[i]||'◆'}</span><span class="guide-name">${safeText(item.title)}</span><span class="guide-more">VIEW MORE »</span></button>`).join('');
+function renderGuide(id){const section=guideData.find(item=>item.id===id);if(!section)return;tabs.querySelectorAll('.guide-tab').forEach(btn=>btn.classList.toggle('active',btn.dataset.id===id));detail.innerHTML=`<header><div><h3>${safeText(section.title)}</h3><p>${safeText(section.intro)}</p></div><a class="more-link" href="#game-guide">返回分類</a></header><div class="guide-items">${(section.items||[]).map(item=>`<article class="guide-item"><h4>${safeText(item.title)}</h4><p>${safeText(item.description)}</p></article>`).join('')}</div>`;detail.classList.add('open');detail.scrollIntoView({behavior:'smooth',block:'center'})}
+tabs.addEventListener('click',e=>{const btn=e.target.closest('[data-id]');if(btn)renderGuide(btn.dataset.id)});
+
+const toggle=document.querySelector('.menu-toggle');const menu=document.querySelector('#mobileMenu');toggle.addEventListener('click',()=>{const open=menu.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open))});menu.addEventListener('click',e=>{if(e.target.closest('a')){menu.classList.remove('open');toggle.setAttribute('aria-expanded','false')}});
