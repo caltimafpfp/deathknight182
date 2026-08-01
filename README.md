@@ -2,19 +2,16 @@
 
 此版本為 GitHub Pages 靜態網站，可直接覆蓋目前 `deathknight182` 儲存庫內容。
 
-## 上線前必填
+## 後台可更新項目
 
-在 `js/config.js` 填入以下正式網址：
+登入管理後台後，可直接修改以下按鈕的顯示名稱與網址：
 
-- `lineUrl`：LINE 官方客服
-- `donateUrl`：贊助頁面
-- `clientUrl`：完整主程式
-- `patchUrl`：更新檔
-- `driveUrl`：Google Drive 備用載點
-- `referralUrl`：推廣回報
-- `facebookUrl`：Facebook 粉絲專頁
+- 上方：遊戲下載、LINE 官方客服、贊助支持
+- 中間：伺服器設置、特色介紹、防具介紹、娃娃介紹、地圖介紹、道具介紹
+- 下方：LINE 官方客服、贊助支持、推廣回報、FB 粉絲團
+- 下載專區：完整主程式、Google Drive
 
-`announcements` 陣列只在 Firebase 暫時無法連線時作為備用公告。
+網站設定儲存在 Firestore 的 `siteSettings/main` 文件。`js/config.js` 的 `announcements` 陣列只在 Firebase 暫時無法連線時作為備用公告。
 
 ## Firebase 公告後台
 
@@ -28,7 +25,7 @@
 
 Firebase 公開網頁設定位於 `js/firebase-config.js`；管理員存取權同時受到 Firebase Authentication UID 與 Firestore 規則限制。
 
-Firestore 規則備份位於 `firebase/firestore.rules`。若管理員 UID 變更，必須同時更新該檔案、Firebase 控制台規則及 `js/firebase-config.js`。
+Firestore 規則備份位於 `firebase/firestore.rules`。重新上傳此版本後，請將該檔案的完整內容貼到 Firebase 控制台 Firestore「規則」頁並按「發布」。若管理員 UID 變更，必須同時更新該檔案、Firebase 控制台規則及 `js/firebase-config.js`。
 
 ### 免費方案圖片
 
@@ -36,7 +33,7 @@ Firestore 規則備份位於 `firebase/firestore.rules`。若管理員 UID 變�
 
 ## 遊戲介紹
 
-七個分類內容位於 `data/game-guide.js`。修改標題、介紹與項目後，首頁會自動更新。
+六個分類的預設站內內容位於 `data/game-guide.js`。後台可修改每個分類的顯示名稱與外部網址；若網址留空或使用 `#`，點擊後會顯示站內介紹內容。
 
 ## GitHub Pages 部署
 

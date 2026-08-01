@@ -30,6 +30,17 @@
         <div class="header-actions"><a href="../" target="_blank" rel="noopener">查看網站</a><button id="logoutBtn" type="button" class="secondary">登出</button></div>
       </header>
 
+      <section class="settings-card">
+        <div class="section-heading">
+          <div><h2>網站按鈕設定</h2><p class="muted">可修改顯示名稱與前往網址；未填網址的遊戲介紹會顯示站內內容。</p></div>
+        </div>
+        <form id="siteSettingsForm">
+          <div id="siteSettingsFields" class="settings-sections"></div>
+          <div class="form-actions"><button type="submit">儲存網站設定</button></div>
+        </form>
+        <p id="settingsStatus" class="status" role="status"></p>
+      </section>
+
       <div class="admin-grid">
         <section class="editor-card">
           <div class="section-heading"><h2 id="formTitle">新增公告</h2><button id="resetBtn" type="button" class="secondary">清空表單</button></div>

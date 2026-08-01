@@ -16,7 +16,7 @@
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobileMenu">選單</button>
     <nav id="mobileMenu" class="mobile-menu" aria-label="行動版導覽">
       <a href="#home">首頁</a><a href="#news">最新公告</a><a href="#game-guide">遊戲介紹</a>
-      <a href="#download">下載專區</a><a href="#support">客服中心</a><a href="#" data-link="donate">贊助支持</a>
+      <a href="#download">下載專區</a><a href="#support">客服中心</a><a href="#" data-site-button="heroDonate"><span data-button-label>贊助支持</span></a>
     </nav>
   </header>
 
@@ -29,10 +29,10 @@
         <a class="nav-download" href="#download" aria-label="下載專區"></a>
         <a class="nav-game" href="#game-guide" aria-label="遊戲介紹"></a>
         <a class="nav-service" href="#support" aria-label="客服中心"></a>
-        <a class="nav-donate" href="#" data-link="donate" aria-label="贊助支持"></a>
-        <a class="btn-download" href="#download" aria-label="遊戲下載"></a>
-        <a class="btn-line" href="#" data-link="line" aria-label="LINE 官方客服"></a>
-        <a class="btn-donate" href="#" data-link="donate" aria-label="贊助支持"></a>
+        <a class="nav-donate" href="#" data-site-button="heroDonate" aria-label="贊助支持"></a>
+        <a class="btn-download" href="#download" data-site-button="heroDownload" aria-label="遊戲下載"></a>
+        <a class="btn-line" href="#" data-site-button="heroLine" aria-label="LINE 官方客服"></a>
+        <a class="btn-donate" href="#" data-site-button="heroDonate" aria-label="贊助支持"></a>
       </nav>
     </section>
 
@@ -61,10 +61,10 @@
       <section class="support-section" id="support">
         <div class="support-title"><span></span><h2>客服與支持<small>SUPPORT &amp; COMMUNITY</small></h2><span></span></div>
         <div class="support-grid">
-          <a href="#" data-link="line" class="support-card line-card"><i>LINE</i><span><strong>LINE 官方客服</strong><small>即時客服・快速回覆</small></span><b>›</b></a>
-          <a href="#" data-link="donate" class="support-card donate-card"><i>◎</i><span><strong>贊助支持</strong><small>支持我們・讓我們做得更好</small></span><b>›</b></a>
-          <a href="#" data-link="referral" class="support-card referral-card"><i>◖</i><span><strong>推廣回報</strong><small>邀請好友・領取獎勵</small></span><b>›</b></a>
-          <a href="#" data-link="facebook" class="support-card facebook-card"><i>f</i><span><strong>官方 Facebook</strong><small>最新消息・活動公告</small></span><b>›</b></a>
+          <a href="#" data-site-button="supportLine" class="support-card line-card"><i>LINE</i><span><strong data-button-label>LINE 官方客服</strong><small>即時客服・快速回覆</small></span><b>›</b></a>
+          <a href="#" data-site-button="supportDonate" class="support-card donate-card"><i>◎</i><span><strong data-button-label>贊助支持</strong><small>支持我們・讓我們做得更好</small></span><b>›</b></a>
+          <a href="#" data-site-button="supportReferral" class="support-card referral-card"><i>◖</i><span><strong data-button-label>推廣回報</strong><small>邀請好友・領取獎勵</small></span><b>›</b></a>
+          <a href="#" data-site-button="supportFacebook" class="support-card facebook-card"><i>f</i><span><strong data-button-label>FB 粉絲團</strong><small>最新消息・活動公告</small></span><b>›</b></a>
         </div>
       </section>
 
@@ -73,10 +73,9 @@
           <div class="heading-title"><span class="heading-icon">⇩</span><h2>下載專區<small>DOWNLOAD</small></h2></div>
           <p>請依照你的安裝狀況選擇下載項目</p>
         </header>
-        <div class="download-grid">
-          <a href="#" data-link="client"><span>01</span><strong>完整主程式<small>首次安裝使用</small></strong><b>立即下載</b></a>
-          <a href="#" data-link="patch"><span>02</span><strong>最新更新檔<small>已有主程式使用</small></strong><b>立即下載</b></a>
-          <a href="#" data-link="drive"><span>03</span><strong>Google Drive<small>備用雲端載點</small></strong><b>前往下載</b></a>
+        <div class="download-grid download-grid-two">
+          <a href="#" data-site-button="downloadClient"><span>01</span><strong><span data-button-label>完整主程式</span><small>首次安裝使用</small></strong><b>立即下載</b></a>
+          <a href="#" data-site-button="downloadDrive"><span>02</span><strong><span data-button-label>Google Drive</span><small>備用雲端載點</small></strong><b>前往下載</b></a>
         </div>
       </section>
     </div>
