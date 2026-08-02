@@ -13,7 +13,7 @@
 
 網站設定儲存在 Firestore 的 `siteSettings/main` 文件。`js/config.js` 的 `announcements` 陣列只在 Firebase 暫時無法連線時作為備用公告。
 
-七個遊戲介紹的標題、簡介、完整文字與圖片網址，也可在管理後台的「遊戲介紹內容管理」更新，並儲存在同一份 `siteSettings/main` 文件。
+七個遊戲介紹都支援多篇內容。每個分類可新增、編輯與刪除多筆標題、簡介、完整文字及圖片網址，並儲存在同一份 `siteSettings/main` 文件。舊版每個分類原有的一份內容會自動保留為第一篇。
 
 ## Firebase 公告後台
 

@@ -43,10 +43,29 @@ export const defaultGuideContent = {
 
 export const guideContentOrder = ["server", "features", "weapons", "armor", "dolls", "maps", "items"];
 
+function normalizeGuideItem(item, fallback, index = 0) {
+  return {
+    id: String(item?.id || `item-${index + 1}`),
+    title: String(item?.title || fallback.title),
+    intro: String(item?.intro || fallback.intro),
+    content: String(item?.content || fallback.content),
+    images: Array.isArray(item?.images) ? item.images : []
+  };
+}
+
 export function mergeGuideContent(saved = {}) {
-  return Object.fromEntries(guideContentOrder.map(key => [key, {
-    ...defaultGuideContent[key],
-    ...(saved?.[key] || {}),
-    images: Array.isArray(saved?.[key]?.images) ? saved[key].images : defaultGuideContent[key].images
-  }]));
+  return Object.fromEntries(guideContentOrder.map(key => {
+    const fallback = defaultGuideContent[key];
+    const stored = saved?.[key];
+    let items;
+    if (Array.isArray(stored?.items)) {
+      items = stored.items.map((item, index) => normalizeGuideItem(item, fallback, index));
+    } else if (stored && (stored.title || stored.content || stored.intro || Array.isArray(stored.images))) {
+      // 舊版每個分類只有一份內容；升級時自動保留為第一篇。
+      items = [normalizeGuideItem({ ...stored, id: `legacy-${key}` }, fallback)];
+    } else {
+      items = [normalizeGuideItem({ ...fallback, id: `default-${key}` }, fallback)];
+    }
+    return [key, { items }];
+  }));
 }

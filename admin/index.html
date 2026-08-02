@@ -43,18 +43,26 @@
 
       <section class="settings-card guide-editor-card">
         <div class="section-heading">
-          <div><h2>遊戲介紹內容管理</h2><p class="muted">七個遊戲介紹都可更新標題、文字內容與圖片。</p></div>
+          <div><h2>遊戲介紹內容管理</h2><p class="muted">七個分類都可新增多篇內容，每篇皆可獨立編輯、刪除文字與圖片。</p></div>
         </div>
-        <form id="guideContentForm">
-          <label>選擇介紹分類<select id="guideContentSelect"></select></label>
-          <div class="field-row">
-            <label>內容標題<input id="guideContentTitle" type="text" maxlength="60" required></label>
-            <label>簡短介紹<input id="guideContentIntro" type="text" maxlength="180" required></label>
-          </div>
-          <label>完整文字內容<textarea id="guideContentBody" rows="12" required placeholder="輸入完整介紹內容，可使用換行分段"></textarea></label>
-          <label>內容圖片網址<textarea id="guideContentImages" rows="4" placeholder="每行一個 https:// 圖片網址"></textarea><small>免費方案請使用公開圖片網址，每個分類最多 10 張。</small></label>
-          <div class="form-actions"><button type="submit">儲存這個介紹內容</button></div>
-        </form>
+        <label class="guide-category-select">選擇介紹分類<select id="guideContentSelect"></select></label>
+        <div class="guide-manager-grid">
+          <section class="guide-entry-list-panel">
+            <div class="guide-list-heading"><div><h3>分類內容列表</h3><p class="muted">點擊項目即可編輯</p></div><button id="newGuideItemBtn" type="button" class="secondary">新增內容</button></div>
+            <div id="guideEntryList" class="guide-entry-list"></div>
+          </section>
+          <form id="guideContentForm">
+            <input id="guideItemId" type="hidden">
+            <h3 id="guideFormTitle">新增內容</h3>
+            <div class="field-row">
+              <label>內容標題<input id="guideContentTitle" type="text" maxlength="80" required placeholder="例如：熾焰長劍"></label>
+              <label>簡短介紹<input id="guideContentIntro" type="text" maxlength="180" required placeholder="列表中顯示的簡短說明"></label>
+            </div>
+            <label>完整文字內容<textarea id="guideContentBody" rows="12" required placeholder="輸入完整介紹內容，可使用換行分段"></textarea></label>
+            <label>內容圖片網址<textarea id="guideContentImages" rows="4" placeholder="每行一個 https:// 圖片網址"></textarea><small>免費方案請使用公開圖片網址，每篇內容最多 10 張。</small></label>
+            <div class="form-actions"><button type="submit">儲存這篇內容</button><button id="deleteGuideItemBtn" type="button" class="danger" hidden>刪除這篇內容</button></div>
+          </form>
+        </div>
         <p id="guideContentStatus" class="status" role="status"></p>
       </section>
 
